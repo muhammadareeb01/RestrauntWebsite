@@ -45,7 +45,7 @@ const timeline = [
 
 function About() {
   return (
-    <section className="bg-[#090909] py-28 overflow-hidden">
+    <section className="bg-site py-28 overflow-hidden">
       <div className="container mx-auto max-w-7xl px-6">
 
         {/* Section Label */}
@@ -67,7 +67,7 @@ function About() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="font-sora font-bold text-[clamp(32px,4vw,48px)] text-center text-[#FAFAFA] mb-20 leading-tight tracking-tight max-w-2xl mx-auto"
+          className="heading-section text-[clamp(32px,4vw,48px)] text-center text-site-primary mb-20 max-w-2xl mx-auto"
         >
           Crafting unforgettable{' '}
           <span className="text-gradient-orange">dining experiences</span>
@@ -112,7 +112,7 @@ function About() {
             className="space-y-8"
           >
             <div>
-              <h3 className="font-sora font-bold text-[28px] text-[#FAFAFA] mb-4 tracking-tight">Our Story</h3>
+              <p className="font-sora font-bold text-[28px] text-site-primary mb-4 tracking-tight">Our Story</p>
               <p className="font-manrope text-[16px] text-[#A7A7A7] leading-[1.8]">
                 Hungry was born from a love for great food and a desire to create an inclusive space
                 where everyone feels welcome. Established in 2023, we have quickly become a favourite
@@ -121,7 +121,7 @@ function About() {
               </p>
             </div>
             <div>
-              <h3 className="font-sora font-bold text-[28px] text-[#FAFAFA] mb-4 tracking-tight">Our Team</h3>
+              <p className="font-sora font-bold text-[28px] text-site-primary mb-4 tracking-tight">Our Team</p>
               <p className="font-manrope text-[16px] text-[#A7A7A7] leading-[1.8]">
                 Our talented chefs and friendly staff work tirelessly to ensure every guest has an
                 extraordinary dining experience. We are committed to delivering top-quality service
@@ -145,8 +145,8 @@ function About() {
                     {f.icon}
                   </div>
                   <div>
-                    <h4 className="font-sora font-semibold text-[16px] text-[#FAFAFA] mb-1">{f.title}</h4>
-                    <p className="font-manrope text-[14px] text-[#7B7B7B] leading-relaxed">{f.desc}</p>
+        <h4 className="font-sora font-semibold text-[16px] text-site-primary mb-1">{f.title}</h4>
+                    <p className="font-manrope text-[14px] text-site-muted leading-relaxed">{f.desc}</p>
                   </div>
                 </motion.div>
               ))}

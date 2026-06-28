@@ -1,6 +1,5 @@
 'use client';
 import Image from 'next/image';
-import Link from 'next/link';
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
@@ -73,21 +72,14 @@ function Hero() {
 
   return (
     <div
-      className="relative min-h-screen bg-[#090909] overflow-hidden flex items-center pt-24"
+      className="relative min-h-screen bg-site overflow-hidden flex items-center pt-24"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
       {/* Ambient background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[15%] right-[20%] w-[500px] h-[500px] rounded-full bg-[#E76F2F]/6 blur-[120px]" />
-        <div className="absolute bottom-[10%] left-[10%] w-[300px] h-[300px] rounded-full bg-[#C65D26]/4 blur-[100px]" />
-        {/* Grain */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
-          }}
-        />
+        <div className="absolute top-[15%] right-[20%] w-[500px] h-[500px] rounded-full bg-[--primary]/6 blur-[120px]" />
+        <div className="absolute bottom-[10%] left-[10%] w-[300px] h-[300px] rounded-full bg-[--primary-accent]/4 blur-[100px]" />
       </div>
 
       <div className="container mx-auto max-w-7xl px-6 py-20">
@@ -113,15 +105,15 @@ function Hero() {
               </div>
             </motion.div>
 
-            {/* Headline */}
+            {/* Headline — Italic Display Style */}
             <motion.div variants={itemVariants} className="space-y-1">
-              <h1 className="font-sora font-extrabold text-[clamp(44px,6vw,76px)] leading-[0.95] tracking-[-0.03em] text-[#FAFAFA]">
+              <h1 className="heading-display text-[clamp(44px,6vw,78px)] text-site-primary">
                 Taste the
               </h1>
-              <h1 className="font-sora font-extrabold text-[clamp(44px,6vw,76px)] leading-[0.95] tracking-[-0.03em] text-gradient-orange">
+              <h1 className="heading-display text-[clamp(44px,6vw,78px)] text-gradient-orange">
                 Future
               </h1>
-              <h1 className="font-sora font-extrabold text-[clamp(44px,6vw,76px)] leading-[0.95] tracking-[-0.03em] text-[#FAFAFA]">
+              <h1 className="heading-display text-[clamp(44px,6vw,78px)] text-site-primary">
                 of Food
               </h1>
             </motion.div>
@@ -129,7 +121,7 @@ function Hero() {
             {/* Subtitle */}
             <motion.p
               variants={itemVariants}
-              className="font-manrope text-[17px] font-medium text-[#A7A7A7] leading-relaxed max-w-[520px] mx-auto lg:mx-0"
+              className="font-manrope text-[17px] font-medium text-site-secondary leading-relaxed max-w-[520px] mx-auto lg:mx-0"
             >
               Experience culinary excellence with our chef-crafted dishes,
               delivered fresh to your doorstep in New York City.
@@ -140,13 +132,29 @@ function Hero() {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <Link href="#menu" className="btn-primary inline-flex items-center justify-center gap-2">
+              <a
+                href="#menu"
+                onClick={e => {
+                  e.preventDefault();
+                  const el = document.getElementById('menu');
+                  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+                }}
+                className="btn-primary inline-flex items-center justify-center gap-2"
+              >
                 <span>Explore Menu</span>
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-              </Link>
-              <Link href="#about" className="btn-glass inline-flex items-center justify-center gap-2">
+              </a>
+              <a
+                href="#about"
+                onClick={e => {
+                  e.preventDefault();
+                  const el = document.getElementById('about');
+                  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+                }}
+                className="btn-glass inline-flex items-center justify-center gap-2"
+              >
                 <span>Our Story</span>
-              </Link>
+              </a>
             </motion.div>
 
             {/* Statistics */}
